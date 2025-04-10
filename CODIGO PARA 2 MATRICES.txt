@@ -1,0 +1,26 @@
+#include <MatrizLed.h> 
+
+// Crea dos instancias de la clase MatrizLed
+MatrizLed pantalla1;
+MatrizLed pantalla2;
+
+void setup() {
+  // Configura las dos matrices, usando pines diferentes para cada una.
+  // Para la primera matriz (pantalla1)
+  pantalla1.begin(12, 11, 10, 2); 
+  pantalla1.rotar(false);  // Puedes rotar si lo deseas
+
+  // Para la segunda matriz (pantalla2)
+  pantalla2.begin(8, 7, 6, 2);  // Cambiar los pines según tu conexión
+  pantalla2.rotar(false);  // Puedes rotar si lo deseas
+}
+
+void loop() { 
+  // Borra las pantallas antes de mostrar el siguiente texto
+  pantalla1.borrar();
+  pantalla2.borrar();
+
+  // Escribe una frase desplazándose por ambas matrices
+  pantalla1.escribirFraseScroll("hola papu", 150); 
+  pantalla2.escribirFraseScroll("hola papu", 150);
+}
